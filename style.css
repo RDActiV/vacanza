@@ -2,28 +2,35 @@
     margin: 0;
     font-family: 'Montserrat';
 }
-
+body{
+    position: relative;
+}
 .top-container{
     
     background: linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.5)), url("images/background.png");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    
+    z-index: 1;
     
     
     
 }
 .header-fixed{
+    background-color: rgba(0,0,0,0.2);
+    position: fixed;
+    width: 99%;
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    z-index: 2;
     
     
 }
 .csi-text{
     color: aliceblue;
-    font-size: 20px;
+    font-size: 25px;
+    letter-spacing: 1px;
     font-weight: bold;
     font-family: 'Montserrat';
     display: flex;
@@ -43,15 +50,16 @@
     display: flex;
     margin-right: 20px;
     color: white;
+    letter-spacing: 1px;
     background-color: rgba(0,0,0,0.7);
-    border: 0;
+    border: unset;
     border-radius: 4px;
     align-items: center;
     justify-content: center;
     width: 90px;
     height: 40px;
     transition: background-color 0.25s, border 1s;
-    font-weight: bold;
+    font-weight:500;
 }
 .button:hover{
     
@@ -69,10 +77,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 80px 40px;
 
 }
 .logo{
+    
     opacity: 80% ;
     height: 180px;
     transform: rotate(0deg);
@@ -102,7 +111,9 @@
     margin: 0px 20px 40px;
     padding: 15px 25px;
     font-size: 17px;
-    background-color: rgba(0,0,0,0);
+    letter-spacing: 1px;
+    font-weight: 500;
+    background-color: rgba(0,0,0,0.5);
     color: aliceblue;
     border: 2px solid white ;
     border-radius: 70px;
@@ -117,10 +128,10 @@
     position: relative;
     display: none;
     color: white;
-    transition: all ease-in 2s;
+    transition: all 2s ease-in;
     
 }
-.a-button:hover>.fa-arrow-right  {
+.a-button:hover>.fa{
     display: block;
     padding-right: 10px;
     left:15px;
@@ -128,19 +139,19 @@
     
 
 }
-.cards{
-    
+.middle-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: rgb(230, 230, 230);
+    align-items: center;
+    padding: 20px 0px 20px 0px;
+    
 }
+
 .card{
     background-color: white;
     display: flex;
-    align-items: flex-start;
-    height: fit-content;
-    width: 50%;
+    width: 900px;
     margin: 20px;
     box-shadow: 10px 10px 10px gray;
     transition: all ease-in-out 0.5s;
@@ -153,6 +164,13 @@
 .card>img{
     width: 300px;
     clip-path: polygon(100% 0,0 0,50% 50%,0 100%,100% 100%);
+}
+#card2>img{
+    
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0 100%,0 0);
+}
+#card2{
+    box-shadow: -10px 10px 10px gray;
 }
 p{
     color: rgb(82, 82, 82);
@@ -174,8 +192,64 @@ p{
     color:white;
     background-color: green;
 }
-.social-button{
+.social-icons{
+    position: absolute;
+    top:20%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+    border-bottom: 3px dotted white;
+    
+    margin: 0 0 50px 0;
+    z-index: 2;
+    
+}
+.bottom-container{
+    position: relative;
     display: flex;
+    flex-direction: column;
+    overflow: hidden;
     
     
+
+}
+.footer-img{
+    background: url("images/footer.png") no-repeat ;
+    height: 150px;
+    z-index: 1;
+    animation: breathing 5s infinite ease-in-out;
+}
+@keyframes breathing{
+    0% {
+        
+        transform: scale(1);
+    }
+    50% {
+        
+        transform: scale(1.1);
+    }
+    100% {
+        
+        transform: scale(1);
+    }
+}
+.footer{
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(118, 4, 153);
+    color: aliceblue;
+    height: 30px;
+    align-items: center;
+}
+.social-icons>a{
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    transform: rotate(45deg);
+    transition: all 0.5s ease-in;
+}
+.social-icons>a:hover{
+    transform: rotate(45deg);
 }
