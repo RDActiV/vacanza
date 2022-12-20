@@ -30,13 +30,16 @@ body{
 .csi-text{
     color: aliceblue;
     font-size: 25px;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
     font-weight: bold;
     font-family: 'Montserrat';
     display: flex;
     align-items: center;
     padding-left: 20px;
-    
+    transition: letter-spacing 0.5s ease-in-out;
+}
+.csi-text:hover{
+    letter-spacing: 3px;
 }
 .nav{
     display: flex;
@@ -60,18 +63,82 @@ body{
     height: 40px;
     transition: background-color 0.25s, border 1s;
     font-weight:500;
+    
 }
 .button:hover{
-    
+    animation: dance 1s infinite ease-in-out;
     background-color: black;
     
 }
+@keyframes dance{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(3px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.hamicon{
+    position: relative;
+    overflow: hidden;
+    
+}
 .ham-icon{
-    display: flex;
+    
     border: 0;
     border-radius: 50%;
     height: 40px;
     width: 40px;
+
+    
+}
+
+.lines{
+    position: absolute;
+    top: 30%;
+    left:25%
+
+}
+.line1{
+    width: 18px;
+    border: 1px solid black;
+    transform: translateY(0) rotate(0deg);
+    transition: all 1s ease-out;
+    
+    position: absolute;
+    
+    
+}
+.line2{
+    position: absolute;
+    top: 7px;
+    width: 18px;
+    border: 1px solid black;
+    
+    transform: translateX(0);
+    transition:  0.8s ease-in-out;
+}
+.line3{
+    top: 14px;
+    width: 18px;
+    border: 1px solid black;
+    transform: translateY(0) rotate(0deg);
+    transition: all 1s ease-out;
+    
+    position: absolute;
+}
+.hamicon:hover .line1{
+    transform: translateY(7px) rotate(45deg);
+}
+.hamicon:hover .line2{
+    border: 0px solid white;
+    transform: translateX(-15px) ;
+}
+.hamicon:hover .line3{
+    transform: translateY(-7px) rotate(-45deg);
 }
 .logo-div{
     display: flex;
@@ -107,6 +174,7 @@ body{
     
 }
 .a-button{
+    position: relative;
     display: flex;
     margin: 0px 20px 40px;
     padding: 15px 25px;
@@ -125,16 +193,17 @@ body{
 }
 .fa-arrow-right{
     font-size: 18px;
-    position: relative;
     display: none;
-    color: white;
-    transition: all 2s ease-in;
+    padding: 0px;
+    transform: translateX(0px);
+    transition: transform 1s;
+    
     
 }
-.a-button:hover>.fa{
-    display: block;
-    padding-right: 10px;
-    left:15px;
+.a-button:hover>.fa-arrow-right{
+    display: inline-block;
+    transform: translateX(20px);
+    
     
     
 
@@ -187,19 +256,19 @@ p{
     color: green;
     background-color: transparent;
     border: 1px solid green;
+    transition: letter-spacing 1s ease-in-out;
 }
 .text>button:hover{
     color:white;
     background-color: green;
+    letter-spacing: 3px;
 }
 .social-icons{
     position: absolute;
     top:20%;
     left:50%;
     transform: translate(-50%,-50%);
-    
     border-bottom: 3px dotted white;
-    
     margin: 0 0 50px 0;
     z-index: 2;
     
@@ -209,8 +278,6 @@ p{
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    
-    
 
 }
 .footer-img{
@@ -242,14 +309,15 @@ p{
     height: 30px;
     align-items: center;
 }
-.social-icons>a{
+.social-icons>a>i{
     font-size: 30px;
     text-decoration: none;
     color: white;
-    margin: 0 5px;
-    transform: rotate(45deg);
-    transition: all 0.5s ease-in;
+    margin: 0 5px 5px;
+    transition: all 0.3s ease-in-out;
+    
+    
 }
-.social-icons>a:hover{
+.social-icons>a>i:hover{
     transform: rotate(45deg);
 }
